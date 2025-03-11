@@ -1,7 +1,7 @@
 
   
 
-# Flappy Bird Clone
+# Floppy Bird
 
 A Flappy Bird Clone Writen in Java
 
