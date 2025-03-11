@@ -16,7 +16,7 @@ public class FlappyBird extends JPanel {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {  // Delete the Old Bird To display the new one 
+    protected void paintComponent(Graphics g) {  // Delete the Old Bird sprite To display the new one 
         super.paintComponent(g);
         birdGraphics(g);
     }
