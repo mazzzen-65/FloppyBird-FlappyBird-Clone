@@ -1,9 +1,9 @@
 
   
 
-# Fluffy Nerd
+# Flappy Bird Clone
 
-Flappy Bird Clone Writen in Java
+A Flappy Bird Clone Writen in Java
 
 --------------------------------------------
   
