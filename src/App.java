@@ -4,7 +4,7 @@ class GameWindow extends JFrame {
     int WIDTH = 340;
     int HEIGHT = 640;
     public GameWindow(){  //Constructor to Control the Game Window
-        setTitle("Flappy Bird");
+        setTitle("Floppy Bird");
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
