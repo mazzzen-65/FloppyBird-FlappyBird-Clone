@@ -5,7 +5,7 @@
 
 Flappy Bird Clone Writen in Java
 
-  
+--------------------------------------------
   
 
 ### How to Run
