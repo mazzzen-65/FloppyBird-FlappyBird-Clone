@@ -12,7 +12,6 @@ class GameWindow extends JFrame {
         setVisible(true);
         FlappyBird sprite = new FlappyBird();
         sprite.setBounds(0, 0, WIDTH, HEIGHT);
-        
         add(sprite);
     }
     
