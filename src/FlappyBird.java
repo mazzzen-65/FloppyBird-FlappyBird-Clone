@@ -6,7 +6,7 @@ import java.util.random.*;
 
 public class FlappyBird extends JPanel {
     float _birdY = 320;
-    float _velocity = 0.5f;
+    float _velocity = 4.2f;
     float _gravity = 0.8f;
     
     public FlappyBird(){
