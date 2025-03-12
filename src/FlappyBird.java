@@ -6,8 +6,8 @@ import java.util.random.*;
 
 public class FlappyBird extends JPanel {
     int _birdY = 320;
-    float _velocity = 0.00001f;
-    float _gravity = 0.00000001f;
+    float _velocity = 0.5f;
+    float _gravity = 0.8f;
     
     
     public void birdGraphics(Graphics g){  //Control The Bird Graphics
