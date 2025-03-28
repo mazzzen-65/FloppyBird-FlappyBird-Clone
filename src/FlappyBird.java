@@ -8,11 +8,15 @@ public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
     float _velocity = 4.2f;
     float _gravity = 0.8f;
+    private Image spriIcon;
     
     public FlappyBird(){
         addKeyListener(this);
         setFocusable(true); 
         requestFocusInWindow();
+        setOpaque(false);
+        spriIcon = new ImageIcon("bird_sprite.png").getImage();
+        
         Timer t = new Timer(16, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,14 +27,19 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
     
     public void birdGraphics(Graphics g){  //Control The Bird Graphics
-          
+        if (spriIcon != null) {
+            g.drawImage(spriIcon, 40, (int) _birdY, 20, 20, this);
+        } else {
+            System.out.println("Sprite image is null!");
+        }
     }
-
+    
     @Override
     protected void paintComponent(Graphics g) {  // Delete the Old Bird sprite To display the new one 
         super.paintComponent(g);
         birdGraphics(g);
     }
+
 
     public void updateBird(){
         _velocity += _gravity;
