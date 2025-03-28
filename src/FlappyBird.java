@@ -13,7 +13,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     public FlappyBird(){
         addKeyListener(this);
         setFocusable(true); 
-        requestFocusInWindow();
+        requestFocusInWindow();  //make the panal be focused on from keyboard
         setOpaque(false);
         spriIcon = new ImageIcon("assets/bird_sprite.png").getImage();
         
@@ -41,14 +41,14 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
 
 
-    public void updateBird(){
+    public void updateBird(){  //bird physics
         _velocity += _gravity;
         _birdY += _velocity;
         repaint();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent e) { //to make the player control the bird (type for a single press)
         switch (e.getKeyChar()) {
             case 'w':
                 _velocity = -8.0f;
@@ -60,15 +60,8 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
-      
-    }
-
+    public void keyPressed(KeyEvent e) {/*..*/}
     @Override
-    public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void keyReleased(KeyEvent e) {/*..*/}
     
 }

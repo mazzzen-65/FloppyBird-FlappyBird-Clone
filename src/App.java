@@ -7,12 +7,11 @@ class GameWindow extends JFrame {
         setTitle("Floppy Bird");
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setLayout(null);
         setLocationRelativeTo(null); 
         setVisible(true);
         FlappyBird sprite = new FlappyBird();
         sprite.setBounds(0, 0, WIDTH, HEIGHT);
-        setContentPane(sprite);
+        add(sprite);
         sprite.requestFocusInWindow();
     }
     
