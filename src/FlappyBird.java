@@ -8,7 +8,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
     float _velocity = 4.2f;
     float _gravity = 0.8f;
-    private Image spriIcon;
+    Image spriIcon;
     
     public FlappyBird(){
         addKeyListener(this);
