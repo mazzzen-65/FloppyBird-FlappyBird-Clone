@@ -15,7 +15,7 @@ public class FlappyBird extends JPanel implements KeyListener {
         setFocusable(true); 
         requestFocusInWindow();
         setOpaque(false);
-        spriIcon = new ImageIcon("bird_sprite.png").getImage();
+        spriIcon = new ImageIcon("assets/bird_sprite.png").getImage();
         
         Timer t = new Timer(16, new ActionListener() {
             @Override
@@ -28,7 +28,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     
     public void birdGraphics(Graphics g){  //Control The Bird Graphics
         if (spriIcon != null) {
-            g.drawImage(spriIcon, 40, (int) _birdY, 20, 20, this);
+            g.drawImage(spriIcon, 40, (int) _birdY, 50, 50, this);
         } else {
             System.out.println("Sprite image is null!");
         }
