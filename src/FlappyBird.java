@@ -34,8 +34,8 @@ public class FlappyBird extends JPanel {
     public void updateBird(){
             _birdY += _velocity * _gravity;
             repaint();
-            System.out.println(_birdY);
     }
+
     
     
 }
