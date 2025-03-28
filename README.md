@@ -16,7 +16,7 @@ A Flappy Bird Clone Writen in Java
 
   
 
-- Open Your IDE (Intelij , Eclipce or whatever)
+- Open Your IDE (Intelij , Eclipse or whatever)
 
   
 
