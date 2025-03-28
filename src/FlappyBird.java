@@ -23,9 +23,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
     
     public void birdGraphics(Graphics g){  //Control The Bird Graphics
-       Graphics2D g2d = (Graphics2D) g;  
-       g2d.setColor(Color.red);
-       g2d.fillOval(100, (int)_birdY, 100,100);    
+          
     }
 
     @Override
