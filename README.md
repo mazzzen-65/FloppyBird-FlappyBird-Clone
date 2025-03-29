@@ -20,7 +20,7 @@ A Flappy Bird Clone Writen in Java
 
   
 
-- Run App.Java
+- Run App.java
 
   
 ------------------------------------
