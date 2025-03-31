@@ -12,6 +12,9 @@ class GameWindow extends JFrame {
         sprite.setBounds(0, 0, WIDTH, HEIGHT);
         add(sprite);
         sprite.requestFocusInWindow();
+        Background background = new Background();
+        add(background);
+        setVisible(true);
     }
     
 }
