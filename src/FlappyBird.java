@@ -6,7 +6,7 @@ import java.util.random.*;
 
 public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
-    float _velocity = 4.2f;
+    float _velocity = 3.2f;
     float _gravity = 0.8f;
     Image spriIcon;
     
@@ -47,7 +47,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     public void updateBird(){
         /*
          * the physics for the bird where velocity is affected by gravity then the bird vertical postion is affected 
-         * by velocity ot make the movement as close as real world gravity
+         * by velocity to make the movement as close as real world gravity
          */
         _velocity += _gravity;
         _birdY += _velocity;
@@ -58,7 +58,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) { //to make the player control the bird
         switch (e.getKeyChar()) {
             case 'w':
-                _velocity = -8.0f;
+                _velocity = -11.0f;
                 break;
         
             default:
