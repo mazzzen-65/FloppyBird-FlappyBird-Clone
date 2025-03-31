@@ -1,6 +1,10 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;  
 import java.awt.*;  
-import java.awt.event.*; 
+import java.awt.event.*;
+import java.io.File; 
 public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
     float _velocity = 3.2f;
@@ -56,6 +60,15 @@ public class FlappyBird extends JPanel implements KeyListener {
         switch (e.getKeyChar()) {
             case 'w':
                 _velocity = -11.0f;
+                try {
+                 AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/jump.wav"));
+                Clip clip = AudioSystem.getClip(); //CLip to run the audio
+                clip.open(audio);
+                clip.start();
+                }
+                catch (Exception ee){
+                JOptionPane.showMessageDialog(null,"Error in music assets");
+                }
                 break;
         
             default:
