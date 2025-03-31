@@ -16,6 +16,8 @@ class GameWindow extends JFrame {
         sprite.requestFocusInWindow();
         Background background = new Background();
         add(background);
+        CollisionManager ground = new CollisionManager();
+        
         setVisible(true);
     }
     
