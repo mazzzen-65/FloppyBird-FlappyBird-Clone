@@ -56,9 +56,9 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) { //to make the player control the bird
-        switch (e.getKeyChar()) {
-            case 'w':
+    public void keyPressed(KeyEvent e) { //to make the player control the bird
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_SPACE:
                 _velocity = -11.0f;
                 try {
                 AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/jump.wav"));
@@ -77,7 +77,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {/*..*/}
+    public void keyTyped(KeyEvent e) {/*..*/}
     @Override
     public void keyReleased(KeyEvent e) {/*..*/}
     
