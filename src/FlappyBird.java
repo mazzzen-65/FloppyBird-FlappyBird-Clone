@@ -17,7 +17,10 @@ public class FlappyBird extends JPanel implements KeyListener {
         setOpaque(false);
         spriIcon = new ImageIcon("assets/bird_sprite.png").getImage();
         
-        Timer t = new Timer(16, new ActionListener() {  // A Timer to Adjust the Game Loop (at 60 FPS)
+        Timer t = new Timer(16, new ActionListener() {  
+            /*
+             * the timer is adjusted to run the updateBird Method each 16 ms (or 60 FPS)
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateBird();
@@ -41,14 +44,18 @@ public class FlappyBird extends JPanel implements KeyListener {
     }
 
 
-    public void updateBird(){  //bird physics
+    public void updateBird(){
+        /*
+         * the physics for the bird where velocity is affected by gravity then the bird vertical postion is affected 
+         * by velocity ot make the movement as close as real world gravity
+         */
         _velocity += _gravity;
         _birdY += _velocity;
         repaint();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) { //to make the player control the bird (type for a single press)
+    public void keyTyped(KeyEvent e) { //to make the player control the bird
         switch (e.getKeyChar()) {
             case 'w':
                 _velocity = -8.0f;

@@ -8,6 +8,8 @@ class GameWindow extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); 
+        ImageIcon icon = new ImageIcon("assets/bird_sprite.png");
+        setIconImage(icon.getImage());
         FlappyBird sprite = new FlappyBird();
         sprite.setBounds(0, 0, WIDTH, HEIGHT);
         add(sprite);
