@@ -1,9 +1,6 @@
 import javax.swing.*;  
 import java.awt.*;  
 import java.awt.event.*; 
-import java.util.ArrayList; 
-import java.util.random.*;
-
 public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
     float _velocity = 3.2f;
