@@ -10,10 +10,10 @@ public class Background extends JPanel {
     }
     public static void playMusic(){
         try {
-            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/background_ost.wav"));
-            Clip clip = AudioSystem.getClip(); //CLip to run the audio
-            clip.open(audio);
-            clip.start();
+                AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/background_ost.wav"));
+                Clip clip = AudioSystem.getClip(); //CLip to run the audio
+                clip.open(audio);
+                clip.start();
         }
         catch(Exception e) {
             JOptionPane.showMessageDialog(null,"Error in music assets");
