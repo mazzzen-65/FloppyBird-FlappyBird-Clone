@@ -61,7 +61,7 @@ public class FlappyBird extends JPanel implements KeyListener {
             case 'w':
                 _velocity = -11.0f;
                 try {
-                 AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/jump.wav"));
+                AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/jump.wav"));
                 Clip clip = AudioSystem.getClip(); //CLip to run the audio
                 clip.open(audio);
                 clip.start();
