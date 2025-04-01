@@ -4,7 +4,7 @@ import javax.swing.*;
  */
 class GameWindow extends JFrame {
     int WIDTH = 340;
-    int HEIGHT = 680;
+    int HEIGHT = 640;
     public GameWindow(){
         setTitle("Floppy Bird");
         setSize(WIDTH, HEIGHT);
@@ -22,7 +22,7 @@ class GameWindow extends JFrame {
 
         // Add BackGround
         Background background = new Background();
-        background.setBounds(0, 0, WIDTH, HEIGHT);
+        background.setBounds(0, -25, WIDTH, HEIGHT);
         layeredPane.add(background, Integer.valueOf(0)); // Add to the bottom layer
 
 
