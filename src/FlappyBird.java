@@ -1,6 +1,4 @@
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
 import javax.swing.*;  
 import java.awt.*;  
 import java.awt.event.*;
@@ -60,6 +58,8 @@ public class FlappyBird extends JPanel implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_SPACE:
                 _velocity = -11.0f;
+                
+                // a sound effect to play every time the player press Space Bar
                 try {
                 AudioInputStream audio = AudioSystem.getAudioInputStream(new File("assets/jump.wav"));
                 Clip clip = AudioSystem.getClip(); //CLip to run the audio

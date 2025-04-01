@@ -11,7 +11,7 @@ class GameWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Create a JLayeredPane for layering components
+        // using JLayeredPane to handle the layering
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBounds(0, 0, WIDTH, HEIGHT);
         add(layeredPane);
@@ -20,16 +20,16 @@ class GameWindow extends JFrame {
         ImageIcon icon = new ImageIcon("assets/bird_sprite.png");
         setIconImage(icon.getImage());
 
-        // Add BackGround
+        // Add BackGround to the bottom layer (i=0)
         Background background = new Background();
         background.setBounds(0, -25, WIDTH, HEIGHT);
-        layeredPane.add(background, Integer.valueOf(0)); // Add to the bottom layer
+        layeredPane.add(background, Integer.valueOf(0));
 
 
-        // Add Bird Sprite
+        // Add Bird Sprite above the background (i=1)
         FlappyBird sprite = new FlappyBird();
         sprite.setBounds(0, 0, WIDTH, HEIGHT);
-        layeredPane.add(sprite, Integer.valueOf(1)); // Add above the background
+        layeredPane.add(sprite, Integer.valueOf(1));
         sprite.requestFocusInWindow();
 
         setVisible(true);
