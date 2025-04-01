@@ -4,7 +4,7 @@ import javax.swing.*;
  */
 class GameWindow extends JFrame {
     int WIDTH = 340;
-    int HEIGHT = 800;
+    int HEIGHT = 680;
     public GameWindow(){
         setTitle("Floppy Bird");
         setSize(WIDTH, HEIGHT);
