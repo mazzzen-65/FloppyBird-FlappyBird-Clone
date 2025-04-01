@@ -32,12 +32,6 @@ class GameWindow extends JFrame {
         layeredPane.add(sprite, Integer.valueOf(1)); // Add above the background
         sprite.requestFocusInWindow();
 
-
-        // Add Ground
-        GroundRender ground = new GroundRender();
-        ground.setBounds(0, 640, WIDTH, 50);
-        layeredPane.add(ground, Integer.valueOf(2)); // Add above the bird sprite
-
         setVisible(true);
     }
     
