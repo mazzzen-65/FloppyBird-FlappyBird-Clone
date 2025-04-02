@@ -32,7 +32,7 @@ class GameWindow extends JFrame {
         layeredPane.add(sprite, Integer.valueOf(1));
         sprite.requestFocusInWindow();
 
-        // Add Pipes 
+        // Add Pipes in front of Bird
         Pipe pipe = new Pipe();
         pipe.setBounds(0, 0, WIDTH, HEIGHT);
         layeredPane.add(pipe, Integer.valueOf(2));
