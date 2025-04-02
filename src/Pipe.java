@@ -12,6 +12,7 @@ public class Pipe extends JPanel{
     int _pipeY = 0;
     int _pipeWidth = 172;
     int _pipeHeight = 512;
+    float _pipeVelocity = -4; // move the pipes by 4 frames
     Image pipeImage, pipeImageTop ,pipeImageBottom;
     ArrayList<Pipe> pipes;
     Timer pipeTime;
@@ -25,6 +26,8 @@ public class Pipe extends JPanel{
         pipeImageBottom = new ImageIcon("assets/bottompipe.png").getImage();
         setOpaque(false);
         
+        //Array to store the pipes into
+        pipes = new ArrayList<>();
         //timer to spawn pipes
         pipeTime = new Timer(1500, new ActionListener() {
             @Override
@@ -42,26 +45,33 @@ public class Pipe extends JPanel{
     }
 
     public void placePipe(){
-        //method to place the pipes
+        //method to place the pipes (bottom , top)
         Pipe topPipe = new Pipe(pipeImageTop);
-        add(topPipe);
+        pipes.add(topPipe);
+        System.out.println("placed");
     }
 
     public void drawPipe(Graphics g){
-    // Draw the bottom pipe
-    if (pipeImageTop != null) {
-        g.drawImage(pipeImageTop, _pipeX + 180, _pipeY + 300, _pipeWidth, _pipeHeight, this);
-    } else {
-        System.out.println("Top pipe image is null!");
-    }
+        // Draw the bottom pipe
+        if (pipeImageTop != null) {
+            for (int i = 0 ; i < pipes.size() ; i++){
+                Pipe pipe = pipes.get(i);
+                g.drawImage(pipeImageTop, pipe._pipeX + 180, pipe._pipeY + 300, _pipeWidth, _pipeHeight,this);
+            }
+        } else {
+            System.out.println("Top pipe image is null!");
+        }
+    
+        // Draw the top pipe
+        if (pipeImageBottom != null) {
+            g.drawImage(pipeImageBottom, _pipeX + 180, _pipeY - 300 , _pipeWidth, _pipeHeight, this);
+        } else {
+            System.out.println("Bottom pipe image is null!");
+        }
+        }
 
-    // Draw the top pipe
-    if (pipeImageBottom != null) {
-        g.drawImage(pipeImageBottom, _pipeX + 180, _pipeY - 300 , _pipeWidth, _pipeHeight, this);
-    } else {
-        System.out.println("Bottom pipe image is null!");
-    }
-    }
+    
+    
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
