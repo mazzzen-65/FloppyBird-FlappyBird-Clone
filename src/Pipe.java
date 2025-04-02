@@ -14,7 +14,7 @@ public class Pipe extends JPanel implements ActionListener{
     int _totY = _pipeY;
     int _pipeWidth = 152;
     int _pipeHeight = 512;
-    float _pipeVelocity = -4; // move the pipes by 4 frames
+    float _pipeVelocity = -4; // move the pipes by 4 pixels
     Image pipeImage, pipeImageTop ,pipeImageBottom;
     ArrayList<Pipe> pipes;
     Timer pipeTimeSpawn;
