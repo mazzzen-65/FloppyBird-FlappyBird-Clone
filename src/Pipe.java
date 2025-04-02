@@ -51,7 +51,7 @@ public class Pipe extends JPanel implements ActionListener{
 
     }
     Pipe(Image img, boolean isTop){
-        // constructor to add the pipe img ,check if the top pipe (not nessecary but because i really messed up the nameing of the files and i'm lazy to just rename them)
+        // constructor to add the pipe img ,check if the top pipe (not nessecary but because i really messed up the nameing of the files and i'm lazy to just rename them the code will work without them)
         pipeImage = img;
         isTopPipe = isTop;
     }
