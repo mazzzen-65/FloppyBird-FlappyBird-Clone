@@ -64,7 +64,10 @@ public class Pipe extends JPanel{
     
         // Draw the top pipe
         if (pipeImageBottom != null) {
-            g.drawImage(pipeImageBottom, _pipeX + 180, _pipeY - 300 , _pipeWidth, _pipeHeight, this);
+            for (int i = 0; i < pipes.size(); i++){
+                Pipe pipe = pipes.get(i);
+                g.drawImage(pipeImageBottom, pipe._pipeX + 180, pipe._pipeY - 300 , _pipeWidth, _pipeHeight, this);
+            }
         } else {
             System.out.println("Bottom pipe image is null!");
         }
