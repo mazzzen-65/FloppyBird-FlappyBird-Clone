@@ -5,11 +5,12 @@ import java.awt.*;
 import java.awt.event.*;
 /*
  * to handle the pipes
+ * if anyone sees this just know that i messed up the names for the pipe so bottom = top , top = bottom (how silly)
  */
 public class Pipe extends JPanel{
     int _pipeX = WIDTH;
     int _pipeY = 0;
-    int _pipeWidth = 64;
+    int _pipeWidth = 172;
     int _pipeHeight = 512;
     Image pipeImage, pipeImageTop ,pipeImageBottom;
     ArrayList<Pipe> pipes;
@@ -47,16 +48,16 @@ public class Pipe extends JPanel{
     }
 
     public void drawPipe(Graphics g){
-    // Draw the top pipe
+    // Draw the bottom pipe
     if (pipeImageTop != null) {
-        g.drawImage(pipeImageTop, _pipeX, _pipeY, _pipeWidth, _pipeHeight, this);
+        g.drawImage(pipeImageTop, _pipeX + 180, _pipeY + 300, _pipeWidth, _pipeHeight, this);
     } else {
         System.out.println("Top pipe image is null!");
     }
 
-    // Draw the bottom pipe
+    // Draw the top pipe
     if (pipeImageBottom != null) {
-        g.drawImage(pipeImageBottom, _pipeX, _pipeY + 600, _pipeWidth, _pipeHeight, this); // Adjust Y position for bottom pipe
+        g.drawImage(pipeImageBottom, _pipeX + 180, _pipeY - 300 , _pipeWidth, _pipeHeight, this);
     } else {
         System.out.println("Bottom pipe image is null!");
     }
