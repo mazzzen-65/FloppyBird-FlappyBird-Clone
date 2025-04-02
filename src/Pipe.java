@@ -58,7 +58,6 @@ public class Pipe extends JPanel implements ActionListener{
         */
         Pipe topPipe = new Pipe(pipeImageTop);
         pipes.add(topPipe);
-        System.out.println("placed");
     }
 
     public void drawPipe(Graphics g){
