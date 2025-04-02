@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 /*
  * to handle the pipes
- * if anyone sees this just know that i messed up the names for the pipe so bottom = top , top = bottom (how silly)
+ * if anyone sees this just know that i messed up the names for the pipe files so bottom is top , top is bottom (how silly)
  */
 public class Pipe extends JPanel implements ActionListener{
     int _pipeX = WIDTH;
