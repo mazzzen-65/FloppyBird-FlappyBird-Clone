@@ -18,6 +18,7 @@ public class Pipe extends JPanel implements ActionListener{
     ArrayList<Pipe> pipes;
     Timer pipeTimeSpawn;
     Timer pipeLoopTimer;
+    boolean isTopPipe = false;
     Random random = new Random();
     public Pipe(){
         /*
@@ -48,9 +49,10 @@ public class Pipe extends JPanel implements ActionListener{
         pipeLoopTimer.start();
 
     }
-    Pipe(Image img){
-        // constructor to add the pipe img
+    Pipe(Image img, boolean isTop){
+        // constructor to add the pipe img ,check if top
         pipeImage = img;
+        isTopPipe = isTop;
     }
 
     public void placePipe(){
@@ -60,10 +62,10 @@ public class Pipe extends JPanel implements ActionListener{
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
         int gap = 150;
-        Pipe topPipe = new Pipe(pipeImageTop); //bottom
+        Pipe topPipe = new Pipe(pipeImageTop , false); //bottom
         topPipe._totY = randY + _pipeHeight + gap;
         pipes.add(topPipe);
-        Pipe bottPipe = new Pipe(pipeImageBottom); //top
+        Pipe bottPipe = new Pipe(pipeImageBottom , true); //top
         bottPipe._totY = randY;
         pipes.add(bottPipe);
     }
@@ -74,25 +76,16 @@ public class Pipe extends JPanel implements ActionListener{
          * then keeps drawing but do not store here
          */
 
-        // Draw the bottom pipe
+        // Draw both pipes
         for (int i = 0 ; i < pipes.size() ; i++){
             Pipe pipe = pipes.get(i);
-        if (pipeImageTop != null) {
-                g.drawImage(pipeImageTop, pipe._pipeX + 300, pipe._totY, _pipeWidth, _pipeHeight,this);
+        if (pipe.pipeImage != null) {
+                g.drawImage(pipe.pipeImage, pipe._pipeX + 300, pipe._totY, _pipeWidth, _pipeHeight,this);
             }
         else {
-            System.out.println("Top pipe image is null!");
-            
-        }
-    
-        // Draw the top pipe
-        if (pipeImageBottom != null) {
-                g.drawImage(pipeImageBottom, pipe._pipeX + 300, pipe._totY , _pipeWidth, _pipeHeight, this);
-        } else {
-            System.out.println("Bottom pipe image is null!");
+            System.out.println("Top pipe image is null!");   
         }
     }
-    
     }
         
     
@@ -104,7 +97,7 @@ public class Pipe extends JPanel implements ActionListener{
         for (int i = 0; i < pipes.size(); i++ ){
             Pipe pipe = pipes.get(i);
             pipe._pipeX += _pipeVelocity;
-            if (pipe._pipeX < -400){
+            if (pipe._pipeX < -395){
                 pipes.remove(i);
                 i--;
             }
