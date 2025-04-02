@@ -59,11 +59,12 @@ public class Pipe extends JPanel implements ActionListener{
         * paintComponent will then detect the stored pipes and draw them on the screen.
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
-        Pipe topPipe = new Pipe(pipeImageTop);
-        topPipe._totY = randY;
+        int gap = 150;
+        Pipe topPipe = new Pipe(pipeImageTop); //bottom
+        topPipe._totY = randY + _pipeHeight + gap;
         pipes.add(topPipe);
-        Pipe bottPipe = new Pipe(pipeImageBottom);
-        bottPipe._totY = randY + _pipeHeight + 100;
+        Pipe bottPipe = new Pipe(pipeImageBottom); //top
+        bottPipe._totY = randY;
         pipes.add(bottPipe);
     }
 
@@ -74,26 +75,26 @@ public class Pipe extends JPanel implements ActionListener{
          */
 
         // Draw the bottom pipe
+        for (int i = 0 ; i < pipes.size() ; i++){
+            Pipe pipe = pipes.get(i);
         if (pipeImageTop != null) {
-            for (int i = 0 ; i < pipes.size() ; i++){
-                Pipe pipe = pipes.get(i);
                 g.drawImage(pipeImageTop, pipe._pipeX + 300, pipe._totY, _pipeWidth, _pipeHeight,this);
-                System.out.println("bottom");
             }
-        } else {
+        else {
             System.out.println("Top pipe image is null!");
+            
         }
     
         // Draw the top pipe
         if (pipeImageBottom != null) {
-            for (int i = 0; i < pipes.size(); i++){
-                Pipe pipe = pipes.get(i);
                 g.drawImage(pipeImageBottom, pipe._pipeX + 300, pipe._totY , _pipeWidth, _pipeHeight, this);
-            }
         } else {
             System.out.println("Bottom pipe image is null!");
         }
-        }
+    }
+    
+    }
+        
     
     public void movePipe(){
         /*
@@ -103,7 +104,7 @@ public class Pipe extends JPanel implements ActionListener{
         for (int i = 0; i < pipes.size(); i++ ){
             Pipe pipe = pipes.get(i);
             pipe._pipeX += _pipeVelocity;
-            if (pipe._pipeX + _pipeWidth < 0){
+            if (pipe._pipeX < -400){
                 pipes.remove(i);
                 i--;
             }
