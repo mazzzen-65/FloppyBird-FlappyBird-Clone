@@ -51,7 +51,7 @@ public class Pipe extends JPanel implements ActionListener{
 
     }
     Pipe(Image img, boolean isTop){
-        // constructor to add the pipe img ,check if the top pipe
+        // constructor to add the pipe img ,check if the top pipe (not nessecary but because i really messed up the nameing of the files and i'm lazy to just rename them)
         pipeImage = img;
         isTopPipe = isTop;
     }
@@ -61,7 +61,7 @@ public class Pipe extends JPanel implements ActionListener{
          * This method adds a new pipe to the array list.
          * paintComponent will then detect the stored pipes and draw them on the screen.
          * shift the pos by (pipeY and pipeHeight/24 and a num between [0,1] multiplied be (pipeHeight/2))
-         * passing the arg isTop to check if it is the top pipe or not to prevent intersecting (not nessecary but    because i really messed up the nameing of the files and i'm lazy to just rename them)
+         * passing the arg isTop to check if it is the top pipe or not
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
         int gap = 150;
