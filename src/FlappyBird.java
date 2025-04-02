@@ -5,8 +5,8 @@ import java.awt.event.*;
 import java.io.File; 
 public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
-    float _velocity = 3.2f;
-    float _gravity = 0.8f;
+    float _velocityY = 3.2f;  //to move the bird (up/down)
+    float _gravity = 0.8f;   //to affect velocity like real world
     Image spriIcon;
     
     public FlappyBird(){
@@ -48,8 +48,8 @@ public class FlappyBird extends JPanel implements KeyListener {
          * the physics for the bird where velocity is affected by gravity then the bird vertical postion is affected 
          * by velocity to make the movement as close as real world gravity
          */
-        _velocity += _gravity;
-        _birdY += _velocity;
+        _velocityY += _gravity;
+        _birdY += _velocityY;
         repaint();
     }
 
@@ -57,7 +57,7 @@ public class FlappyBird extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) { //to make the player control the bird
         switch (e.getKeyCode()) {
             case KeyEvent.VK_SPACE:
-                _velocity = -11.0f;
+                _velocityY = -11.0f;
                 
                 // a sound effect to play every time the player press Space Bar
                 try {
