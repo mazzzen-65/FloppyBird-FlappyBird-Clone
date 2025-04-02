@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 /*
  * to handle the pipes
- * if anyone sees this just know that i messed up the names for the pipe files so bottom is top , top is bottom (how silly)
+ * if anyone sees this just know that i messed up the names for the pipe files
+ * so bottom is top , top is bottom (how silly)
  */
 public class Pipe extends JPanel implements ActionListener{
     int _pipeX = WIDTH;
@@ -50,7 +51,7 @@ public class Pipe extends JPanel implements ActionListener{
 
     }
     Pipe(Image img, boolean isTop){
-        // constructor to add the pipe img ,check if top
+        // constructor to add the pipe img ,check if the top pipe
         pipeImage = img;
         isTopPipe = isTop;
     }
@@ -58,7 +59,9 @@ public class Pipe extends JPanel implements ActionListener{
     public void placePipe(){
         /*
          * This method adds a new pipe to the array list.
-        * paintComponent will then detect the stored pipes and draw them on the screen.
+         * paintComponent will then detect the stored pipes and draw them on the screen.
+         * shift the pos by (pipeY and pipeHeight/24 and a num between [0,1] multiplied be (pipeHeight/2))
+         * passing the arg isTop to check if it is the top pipe or not to prevent intersecting (not nessecary but    because i really messed up the nameing of the files and i'm lazy to just rename them)
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
         int gap = 150;
@@ -74,6 +77,7 @@ public class Pipe extends JPanel implements ActionListener{
         /*
          * Draw the Pipes by first instantiate an Object called pipe to get the index at (i) by loop to draw in the screen
          * then keeps drawing but do not store here
+         * we draw the pipes together by calling the pipeImage which has the Top and the Bottom Image
          */
 
         // Draw both pipes
