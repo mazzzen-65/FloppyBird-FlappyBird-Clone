@@ -7,7 +7,7 @@ import java.awt.event.*;
  * to handle the pipes
  * if anyone sees this just know that i messed up the names for the pipe so bottom = top , top = bottom (how silly)
  */
-public class Pipe extends JPanel{
+public class Pipe extends JPanel implements ActionListener{
     int _pipeX = WIDTH;
     int _pipeY = 0;
     int _pipeWidth = 172;
@@ -16,6 +16,7 @@ public class Pipe extends JPanel{
     Image pipeImage, pipeImageTop ,pipeImageBottom;
     ArrayList<Pipe> pipes;
     Timer pipeTimeSpawn;
+    Timer pipeLoopTimer;
     public Pipe(){
         /*
          * Constructor to render and handle placment or the timer for the pipes
@@ -40,6 +41,8 @@ public class Pipe extends JPanel{
         });
         pipeTimeSpawn.start();
         
+        pipeLoopTimer = new Timer(16, this);
+        pipeLoopTimer.start();
 
     }
     Pipe(Image img){
@@ -62,11 +65,12 @@ public class Pipe extends JPanel{
          * Draw the Pipes by first instantiate an Object called pipe to get the index at (i) by loop to draw in the screen
          * then keeps drawing but do not store here
          */
+
         // Draw the bottom pipe
         if (pipeImageTop != null) {
             for (int i = 0 ; i < pipes.size() ; i++){
                 Pipe pipe = pipes.get(i);
-                g.drawImage(pipeImageTop, pipe._pipeX + 180, pipe._pipeY + 300, _pipeWidth, _pipeHeight,this);
+                g.drawImage(pipeImageTop, pipe._pipeX + 300, pipe._pipeY + 350, _pipeWidth, _pipeHeight,this);
             }
         } else {
             System.out.println("Top pipe image is null!");
@@ -76,12 +80,22 @@ public class Pipe extends JPanel{
         if (pipeImageBottom != null) {
             for (int i = 0; i < pipes.size(); i++){
                 Pipe pipe = pipes.get(i);
-                g.drawImage(pipeImageBottom, pipe._pipeX + 180, pipe._pipeY - 300 , _pipeWidth, _pipeHeight, this);
+                g.drawImage(pipeImageBottom, pipe._pipeX + 300, pipe._pipeY - 350 , _pipeWidth, _pipeHeight, this);
             }
         } else {
             System.out.println("Bottom pipe image is null!");
         }
         }
+    
+    public void movePipe(){
+        /*
+         * A move method to take each pipe then move it by adding the velocity to the X Position
+         */
+        for (int i = 0; i < pipes.size(); i++ ){
+            Pipe pipe = pipes.get(i);
+            pipe._pipeX += _pipeVelocity;
+        }
+    }
 
     
     
@@ -92,6 +106,12 @@ public class Pipe extends JPanel{
          */
         super.paintComponent(g);
         drawPipe(g);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        movePipe();
+        repaint();
     }
     
 }
