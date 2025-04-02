@@ -10,7 +10,8 @@ import java.awt.event.*;
 public class Pipe extends JPanel implements ActionListener{
     int _pipeX = WIDTH;
     int _pipeY = 0;
-    int _pipeWidth = 172;
+    int _totY = _pipeY;
+    int _pipeWidth = 152;
     int _pipeHeight = 512;
     float _pipeVelocity = -4; // move the pipes by 4 frames
     Image pipeImage, pipeImageTop ,pipeImageBottom;
@@ -57,10 +58,11 @@ public class Pipe extends JPanel implements ActionListener{
          * This method adds a new pipe to the array list.
         * paintComponent will then detect the stored pipes and draw them on the screen.
         */
-        int randY = (int) (128 - Math.random()*_pipeHeight/2);
+        int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
         Pipe topPipe = new Pipe(pipeImageTop);
-        topPipe._pipeY = randY;
+        topPipe._totY = randY;
         pipes.add(topPipe);
+        Pipe bottPipe = new Pipe(pipeImageBottom);
     }
 
     public void drawPipe(Graphics g){
@@ -73,7 +75,8 @@ public class Pipe extends JPanel implements ActionListener{
         if (pipeImageTop != null) {
             for (int i = 0 ; i < pipes.size() ; i++){
                 Pipe pipe = pipes.get(i);
-                g.drawImage(pipeImageTop, pipe._pipeX + 300, pipe._pipeY + 350, _pipeWidth, _pipeHeight,this);
+                g.drawImage(pipeImageTop, pipe._pipeX + 300, pipe._totY, _pipeWidth, _pipeHeight,this);
+                System.out.println("bottom");
             }
         } else {
             System.out.println("Top pipe image is null!");
@@ -83,7 +86,7 @@ public class Pipe extends JPanel implements ActionListener{
         if (pipeImageBottom != null) {
             for (int i = 0; i < pipes.size(); i++){
                 Pipe pipe = pipes.get(i);
-                g.drawImage(pipeImageBottom, pipe._pipeX + 300, pipe._pipeY - 350 , _pipeWidth, _pipeHeight, this);
+                g.drawImage(pipeImageBottom, pipe._pipeX + 300, pipe._totY , _pipeWidth, _pipeHeight, this);
             }
         } else {
             System.out.println("Bottom pipe image is null!");
