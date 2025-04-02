@@ -60,7 +60,7 @@ public class Pipe extends JPanel implements ActionListener{
         /*
          * This method adds a new pipe to the array list.
          * paintComponent will then detect the stored pipes and draw them on the screen.
-         * shift the pos by (pipeY and pipeHeight/24 and a num between [0,1] multiplied be (pipeHeight/2))
+         * shift the pos of top pipe by (pipeY and pipeHeight/24 and a num between [0,1] multiplied be (pipeHeight/2))
          * passing the arg isTop to check if it is the top pipe or not
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
@@ -77,7 +77,8 @@ public class Pipe extends JPanel implements ActionListener{
         /*
          * Draw the Pipes by first instantiate an Object called pipe to get the index at (i) by loop to draw in the screen
          * then keeps drawing but do not store here
-         * we draw the pipes together by calling the pipeImage which has the Top and the Bottom Image
+         * we draw the pipes together by calling the pipeImage which has the Top and the Bottom Image each stored like 
+          {topImg,bottImg,...} and draw them in the same Horizontal Position
          */
 
         // Draw both pipes
