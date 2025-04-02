@@ -63,6 +63,8 @@ public class Pipe extends JPanel implements ActionListener{
         topPipe._totY = randY;
         pipes.add(topPipe);
         Pipe bottPipe = new Pipe(pipeImageBottom);
+        bottPipe._totY = randY + _pipeHeight + 100;
+        pipes.add(bottPipe);
     }
 
     public void drawPipe(Graphics g){
@@ -96,10 +98,15 @@ public class Pipe extends JPanel implements ActionListener{
     public void movePipe(){
         /*
          * A move method to take each pipe then move it by adding the velocity to the X Position
+         * if statment to remove any pipe that is < the origin point
          */
         for (int i = 0; i < pipes.size(); i++ ){
             Pipe pipe = pipes.get(i);
             pipe._pipeX += _pipeVelocity;
+            if (pipe._pipeX + _pipeWidth < 0){
+                pipes.remove(i);
+                i--;
+            }
         }
     }
 
