@@ -15,7 +15,7 @@ public class Pipe extends JPanel{
     float _pipeVelocity = -4; // move the pipes by 4 frames
     Image pipeImage, pipeImageTop ,pipeImageBottom;
     ArrayList<Pipe> pipes;
-    Timer pipeTime;
+    Timer pipeTimeSpawn;
     public Pipe(){
         /*
          * Constructor to render and handle placment or the timer for the pipes
@@ -28,14 +28,17 @@ public class Pipe extends JPanel{
         
         //Array to store the pipes into
         pipes = new ArrayList<>();
-        //timer to spawn pipes
-        pipeTime = new Timer(1500, new ActionListener() {
+        /*
+         * Timer to spawn pipes 
+         * Every 1.5 seconds a stored pipe in the Array called pipe us placed in the frame
+         */
+        pipeTimeSpawn = new Timer(1500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 placePipe();
             }
         });
-        pipeTime.start();
+        pipeTimeSpawn.start();
         
 
     }
@@ -45,13 +48,20 @@ public class Pipe extends JPanel{
     }
 
     public void placePipe(){
-        //method to place the pipes (bottom , top)
+        /*
+         * This method adds a new pipe to the array list.
+        * paintComponent will then detect the stored pipes and draw them on the screen.
+        */
         Pipe topPipe = new Pipe(pipeImageTop);
         pipes.add(topPipe);
         System.out.println("placed");
     }
 
     public void drawPipe(Graphics g){
+        /*
+         * Draw the Pipes by first instantiate an Object called pipe to get the index at (i) by loop to draw in the screen
+         * then keeps drawing but do not store here
+         */
         // Draw the bottom pipe
         if (pipeImageTop != null) {
             for (int i = 0 ; i < pipes.size() ; i++){
@@ -77,6 +87,9 @@ public class Pipe extends JPanel{
     
     @Override
     protected void paintComponent(Graphics g){
+        /*
+         * keeps looking at the method draw pipe to check for 2 things (there is pipes drawn , there is pipes stored in the array) so if found -> actually draws in the screen
+         */
         super.paintComponent(g);
         drawPipe(g);
     }
