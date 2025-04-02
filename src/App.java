@@ -35,7 +35,7 @@ class GameWindow extends JFrame {
         // Add Pipes 
         Pipe pipe = new Pipe();
         pipe.setBounds(0, 0, WIDTH, HEIGHT);
-        layeredPane.add(pipe, Integer.valueOf(1));
+        layeredPane.add(pipe, Integer.valueOf(2));
 
         setVisible(true);
     }

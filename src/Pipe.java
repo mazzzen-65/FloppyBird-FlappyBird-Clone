@@ -17,6 +17,7 @@ public class Pipe extends JPanel implements ActionListener{
     ArrayList<Pipe> pipes;
     Timer pipeTimeSpawn;
     Timer pipeLoopTimer;
+    Random random = new Random();
     public Pipe(){
         /*
          * Constructor to render and handle placment or the timer for the pipes
@@ -56,7 +57,9 @@ public class Pipe extends JPanel implements ActionListener{
          * This method adds a new pipe to the array list.
         * paintComponent will then detect the stored pipes and draw them on the screen.
         */
+        int randY = (int) (128 - Math.random()*_pipeHeight/2);
         Pipe topPipe = new Pipe(pipeImageTop);
+        topPipe._pipeY = randY;
         pipes.add(topPipe);
     }
 
