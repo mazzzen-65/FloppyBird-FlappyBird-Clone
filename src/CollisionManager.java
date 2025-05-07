@@ -5,12 +5,16 @@ import javax.swing.*;
 public class CollisionManager {
     Pipe pipchekPipe;
     FlappyBird birChekBird;
+    Background bgCheck;
     boolean gameOver = false;
+    Timer collisionTimer;
 
-    public CollisionManager(Pipe pipe, FlappyBird bird) {
+    public CollisionManager(Pipe pipe, FlappyBird bird, Background background) {
         this.birChekBird = bird;
         this.pipchekPipe = pipe;
-        Timer collisionTimer = new Timer(10, new ActionListener() {
+        this.bgCheck = background;
+        
+        collisionTimer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 checkCollision();
@@ -26,17 +30,24 @@ public class CollisionManager {
         for (Pipe pipe : pipchekPipe.pipes) {
             Rectangle pipeRect = new Rectangle(pipe._pipeX + 350, pipe._totY, pipe._pipeWidth, pipe._pipeHeight);
             if (birdRect.intersects(pipeRect)) {
-                gameOver = true;
-                birChekBird.pause();
-                pipchekPipe.pause();
+                handleGameOver();
                 return;
             }
         }
 
         if (birChekBird._birdY >= 620) {
+            handleGameOver();
+        }
+    }
+    
+    private void handleGameOver() {
+        if (!gameOver) {
             gameOver = true;
             birChekBird.pause();
             pipchekPipe.pause();
+            bgCheck.pauseMusic();
+            collisionTimer.stop();
+            System.out.println("Game Over! Music should be stopped.");
         }
     }
 }
