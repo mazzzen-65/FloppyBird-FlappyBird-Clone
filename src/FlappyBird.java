@@ -16,7 +16,7 @@ public class FlappyBird extends JPanel implements KeyListener {
         setOpaque(false);
         spriIcon = new ImageIcon("assets/bird_sprite.png").getImage();
         
-        Timer t = new Timer(16, new ActionListener() {  
+        Timer t = new Timer(12, new ActionListener() {  
             /*
              * the timer is adjusted to run the updateBird Method each 16 ms (or 60 FPS)
              */

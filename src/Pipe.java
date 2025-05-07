@@ -46,7 +46,7 @@ public class Pipe extends JPanel implements ActionListener{
         pipeTimeSpawn.start();
         
         // A timer to move the pipes
-        pipeLoopTimer = new Timer(16, this);
+        pipeLoopTimer = new Timer(12, this);
         pipeLoopTimer.start();
 
     }
