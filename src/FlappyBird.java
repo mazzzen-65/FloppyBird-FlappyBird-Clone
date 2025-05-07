@@ -6,9 +6,12 @@ import java.io.File;
 
 public class FlappyBird extends JPanel implements KeyListener {
     float _birdY = 320;
-    float _velocityY = 3.2f;  // to move the bird (up/down)
+    float _velocityY = 2.2f;  // to move the bird (up/down)
     float _gravity = 0.8f;    // to affect velocity like real world
     Image spriIcon;
+    
+    // Added a boolean flag to check if game is over
+    private boolean isGameOver = false;
     
     // Timer is now a class member to access in pause() and resume()
     Timer t;
@@ -59,6 +62,11 @@ public class FlappyBird extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) { // to make the player control the bird
+        // Check if game is over, if yes, don't react to space bar
+        if (isGameOver) {
+            return; // Exit the method early if game is over
+        }
+        
         switch (e.getKeyCode()) {
             case KeyEvent.VK_SPACE:
                 _velocityY = -11.0f;
@@ -80,18 +88,30 @@ public class FlappyBird extends JPanel implements KeyListener {
         }
     }
 
-    // Pause the bird's movement
+    // Pause the bird's movement and set game over flag
     public void pause() {
         if (t != null) {
             t.stop();
+            isGameOver = true; // Set game over flag to true when paused
         }
     }
     
-    // Resume the bird's movement
+    // Resume the bird's movement and reset game over flag
     public void resume() {
         if (t != null) {
+            isGameOver = false; // Reset game over flag
             t.start();
         }
+    }
+    
+    // Add a method to check if game is over (useful for other classes)
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+    
+    // Add a method to set game over status (useful for other classes)
+    public void setGameOver(boolean status) {
+        isGameOver = status;
     }
     
     @Override

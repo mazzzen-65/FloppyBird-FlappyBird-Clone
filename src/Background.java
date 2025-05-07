@@ -38,7 +38,6 @@ public class Background extends JPanel {
         if (clip != null) {
             if (clip.isRunning()) {
                 clip.stop();  
-                System.out.println("Music stopped.");
             }
         }
     }

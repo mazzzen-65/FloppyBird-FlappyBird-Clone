@@ -21,6 +21,7 @@ public class Pipe extends JPanel implements ActionListener{
     Timer pipeLoopTimer;
     boolean isTopPipe = false;
     Random random = new Random();
+    
     public Pipe(){
         /*
          * Constructor to render and handle placment or the timer for the pipes

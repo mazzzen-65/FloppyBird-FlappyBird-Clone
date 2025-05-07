@@ -18,6 +18,7 @@ public class CollisionManager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 checkCollision();
+                
             }
         });
     
@@ -47,7 +48,8 @@ public class CollisionManager {
             pipchekPipe.pause();
             bgCheck.pauseMusic();
             collisionTimer.stop();
-            System.out.println("Game Over! Music should be stopped.");
+            JOptionPane.showMessageDialog(null, "GAME OVER", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);  
         }
     }
 }
