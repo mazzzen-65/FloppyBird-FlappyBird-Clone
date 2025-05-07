@@ -126,4 +126,11 @@ public class Pipe extends JPanel implements ActionListener{
         repaint();
     }
     
+    public void pause() {
+        pipeLoopTimer.stop();
+    }
+    
+    public void resume() {
+        pipeLoopTimer.start();
+    }
 }

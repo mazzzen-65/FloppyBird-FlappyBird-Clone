@@ -18,6 +18,7 @@ public class Background extends JPanel {
             clip.open(audio);
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
+            
         }
         catch(Exception e) {
             JOptionPane.showMessageDialog(null,"Error in music assets");

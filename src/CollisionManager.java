@@ -21,21 +21,22 @@ public class CollisionManager {
     }
 
     public void checkCollision() {
-        System.out.println("check is ");
         Rectangle birdRect = new Rectangle(40, (int) birChekBird._birdY, 50, 50);
 
         for (Pipe pipe : pipchekPipe.pipes) {
-            Rectangle pipeRect = new Rectangle(pipe._pipeX + 300, pipe._totY, pipe._pipeWidth, pipe._pipeHeight);
+            Rectangle pipeRect = new Rectangle(pipe._pipeX + 350, pipe._totY, pipe._pipeWidth, pipe._pipeHeight);
             if (birdRect.intersects(pipeRect)) {
                 gameOver = true;
-                System.out.println("pipe");
+                birChekBird.pause();
+                pipchekPipe.pause();
                 return;
             }
         }
 
-        if (birChekBird._birdY >= 640) {
+        if (birChekBird._birdY >= 620) {
             gameOver = true;
-            System.out.println("bird");
+            birChekBird.pause();
+            pipchekPipe.pause();
         }
     }
 }
