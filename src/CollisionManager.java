@@ -28,7 +28,7 @@ public class CollisionManager {
             Rectangle pipeRect = new Rectangle(pipe._pipeX + 300, pipe._totY, pipe._pipeWidth, pipe._pipeHeight);
             if (birdRect.intersects(pipeRect)) {
                 gameOver = true;
-                System.out.println("pipe ");
+                System.out.println("pipe");
                 return;
             }
         }
