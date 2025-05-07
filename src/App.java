@@ -37,6 +37,9 @@ class GameWindow extends JFrame {
         pipe.setBounds(0, 0, WIDTH, HEIGHT);
         layeredPane.add(pipe, Integer.valueOf(2));
 
+        // Instantiate the CollisionManager Class
+        CollisionManager collisionManager = new CollisionManager(pipe, sprite);
+
         setVisible(true);
     }
     

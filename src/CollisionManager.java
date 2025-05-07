@@ -1,21 +1,41 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-/*
- * this Class is used to handle all of the Collisions 
- * For Pipes/Bird
- */
-public class CollisionManager extends Rectangle {
-    
-        Pipe pipchekPipe = new Pipe();
-        FlappyBird birChekBird = new FlappyBird();
-        boolean gameOver = false ;
-    
-        public void checkCollision() {
-            if (birChekBird._birdY == 640) {
-                gameOver = true;
-                System.out.println("stoped");
+
+public class CollisionManager {
+    Pipe pipchekPipe;
+    FlappyBird birChekBird;
+    boolean gameOver = false;
+
+    public CollisionManager(Pipe pipe, FlappyBird bird) {
+        this.birChekBird = bird;
+        this.pipchekPipe = pipe;
+
+        Timer collisionTimer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkCollision();
+                if (gameOver) {
+                }
             }
-        }
+        });
+
+        collisionTimer.start();  
     }
 
+    public void checkCollision() {
+        Rectangle birdRect = new Rectangle(40, (int) birChekBird._birdY, 50, 50);
 
+        for (Pipe pipe : pipchekPipe.pipes) {
+            Rectangle pipeRect = new Rectangle(pipe._pipeX + 300, pipe._totY, pipe._pipeWidth, pipe._pipeHeight);
+            if (birdRect.intersects(pipeRect)) {
+                gameOver = true;
+                return;
+            }
+        }
+
+        if (birChekBird._birdY >= 640) {
+            gameOver = true;
+        }
+    }
+}
