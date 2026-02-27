@@ -25,4 +25,4 @@ A Flappy Bird Clone Writen in Java
   
 ------------------------------------
 
-![alt text](https://i.imgur.com/HAm5yy2.png) ``the game is still in make and it's not finished yet``
+![alt text](https://i.imgur.com/HAm5yy2.png) ``GAME IS DONE , ENJOY PLAYING``
