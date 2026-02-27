@@ -104,12 +104,12 @@ public class FlappyBird extends JPanel implements KeyListener {
         }
     }
     
-    // Add a method to check if game is over (useful for other classes)
+    // Add a method to check if game is over 
     public boolean isGameOver() {
         return isGameOver;
     }
     
-    // Add a method to set game over status (useful for other classes)
+    // Add a method to set game over status
     public void setGameOver(boolean status) {
         isGameOver = status;
     }

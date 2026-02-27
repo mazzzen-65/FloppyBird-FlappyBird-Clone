@@ -65,7 +65,7 @@ public class Pipe extends JPanel implements ActionListener{
          * passing the arg isTop to check if it is the top pipe or not
         */
         int randY = (int) (_pipeY -_pipeHeight/24 - Math.random()*_pipeHeight/2);
-        int gap = 150;
+        int gap = 180;
         Pipe topPipe = new Pipe(pipeImageTop , false); //bottom
         topPipe._totY = randY + _pipeHeight + gap;
         pipes.add(topPipe);
